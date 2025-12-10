@@ -36,7 +36,7 @@ else
     echo "BCP_SHOW_BANNER='$BCP_SHOW_BANNER'" >> "$CONFIG_FILE"
 fi
 
-# ==================== CREATE DEFAULT BANNERS ====================
+# ==================== CREATE DEFAULT BANNERS ONLY ====================
 # Default Banner
 if [[ ! -f "$BANNER_DIR/default.banner" ]]; then
     cat > "$BANNER_DIR/default.banner" << 'EOF'
@@ -99,62 +99,27 @@ if [[ ! -f "$BANNER_DIR/ascii.banner" ]]; then
 EOF
 fi
 
-# ==================== CREATE DEFAULT THEMES ====================
-# Default Theme
-if [[ ! -f "$THEME_DIR/default.theme" ]]; then
-    cat > "$THEME_DIR/default.theme" << 'EOF'
-PROMPT_COLOR="cyan"
-USER_COLOR="green"
-TEAM_COLOR="green"
-DIR_COLOR="magenta"
-TIME_COLOR="blue"
-BANNER_COLOR="cyan"
-EOF
-fi
-
-# Dark Theme
-if [[ ! -f "$THEME_DIR/dark.theme" ]]; then
-    cat > "$THEME_DIR/dark.theme" << 'EOF'
-PROMPT_COLOR="gray"
-USER_COLOR="white"
-TEAM_COLOR="yellow"
-DIR_COLOR="cyan"
-TIME_COLOR="blue"
-BANNER_COLOR="cyan"
-EOF
-fi
-
-# Cyber Theme
-if [[ ! -f "$THEME_DIR/cyber.theme" ]]; then
-    cat > "$THEME_DIR/cyber.theme" << 'EOF'
-PROMPT_COLOR="magenta"
-USER_COLOR="cyan"
-TEAM_COLOR="green"
-DIR_COLOR="yellow"
-TIME_COLOR="red"
-BANNER_COLOR="magenta"
-EOF
-fi
-
-# Neon Theme
-if [[ ! -f "$THEME_DIR/neon.theme" ]]; then
-    cat > "$THEME_DIR/neon.theme" << 'EOF'
-PROMPT_COLOR="cyan"
-USER_COLOR="green"
-TEAM_COLOR="yellow"
-DIR_COLOR="magenta"
-TIME_COLOR="blue"
-BANNER_COLOR="pink"
-EOF
-fi
-
-# ==================== LOAD THEME COLORS ====================
+# ==================== LOAD THEME FROM EXISTING FILES ====================
 load_theme() {
     local theme_file="$THEME_DIR/${BCP_THEME}.theme"
+    
     if [[ -f "$theme_file" ]]; then
+        # থিম ফাইল লোড করুন
         source "$theme_file"
+        
+        # থিম ফাইলে যদি রং ডিফাইন না থাকে, ডিফল্ট সেট করুন
+        if [[ -z "$PROMPT_COLOR" ]]; then PROMPT_COLOR="cyan"; fi
+        if [[ -z "$USER_COLOR" ]]; then USER_COLOR="green"; fi
+        if [[ -z "$TEAM_COLOR" ]]; then TEAM_COLOR="green"; fi
+        if [[ -z "$DIR_COLOR" ]]; then DIR_COLOR="magenta"; fi
+        if [[ -z "$TIME_COLOR" ]]; then TIME_COLOR="blue"; fi
+        if [[ -z "$BANNER_COLOR" ]]; then BANNER_COLOR="cyan"; fi
     else
-        # Default colors
+        # থিম ফাইল না থাকলে ডিফল্ট রং সেট করুন
+        echo -e "\033[1;33m⚠️  Theme file not found: $BCP_THEME\033[0m"
+        echo -e "\033[0;36m💡 Available themes: $(ls "$THEME_DIR"/*.theme 2>/dev/null | xargs -n1 basename | sed 's/.theme$//' | tr '\n' ' ')\033[0m"
+        
+        # ডিফল্ট রং
         PROMPT_COLOR="cyan"
         USER_COLOR="green"
         TEAM_COLOR="green"
@@ -169,6 +134,10 @@ load_theme() {
         "green") PC='\[\033[0;32m\]' ;;
         "magenta") PC='\[\033[0;35m\]' ;;
         "gray") PC='\[\033[0;90m\]' ;;
+        "red") PC='\[\033[0;31m\]' ;;
+        "yellow") PC='\[\033[1;33m\]' ;;
+        "blue") PC='\[\033[0;34m\]' ;;
+        "white") PC='\[\033[1;37m\]' ;;
         *) PC='\[\033[0;36m\]' ;;
     esac
     
@@ -177,6 +146,9 @@ load_theme() {
         "yellow") UC='\[\033[1;33m\]' ;;
         "cyan") UC='\[\033[0;36m\]' ;;
         "white") UC='\[\033[1;37m\]' ;;
+        "red") UC='\[\033[0;31m\]' ;;
+        "magenta") UC='\[\033[0;35m\]' ;;
+        "blue") UC='\[\033[0;34m\]' ;;
         *) UC='\[\033[1;33m\]' ;;
     esac
     
@@ -184,6 +156,10 @@ load_theme() {
         "green") TC='\[\033[0;32m\]' ;;
         "yellow") TC='\[\033[1;33m\]' ;;
         "cyan") TC='\[\033[0;36m\]' ;;
+        "white") TC='\[\033[1;37m\]' ;;
+        "red") TC='\[\033[0;31m\]' ;;
+        "magenta") TC='\[\033[0;35m\]' ;;
+        "blue") TC='\[\033[0;34m\]' ;;
         *) TC='\[\033[0;32m\]' ;;
     esac
     
@@ -191,6 +167,10 @@ load_theme() {
         "magenta") DC='\[\033[0;35m\]' ;;
         "cyan") DC='\[\033[0;36m\]' ;;
         "yellow") DC='\[\033[1;33m\]' ;;
+        "green") DC='\[\033[0;32m\]' ;;
+        "red") DC='\[\033[0;31m\]' ;;
+        "blue") DC='\[\033[0;34m\]' ;;
+        "white") DC='\[\033[1;37m\]' ;;
         *) DC='\[\033[0;35m\]' ;;
     esac
     
@@ -198,6 +178,10 @@ load_theme() {
         "blue") TiC='\[\033[0;34m\]' ;;
         "red") TiC='\[\033[0;31m\]' ;;
         "cyan") TiC='\[\033[0;36m\]' ;;
+        "green") TiC='\[\033[0;32m\]' ;;
+        "yellow") TiC='\[\033[1;33m\]' ;;
+        "magenta") TiC='\[\033[0;35m\]' ;;
+        "white") TiC='\[\033[1;37m\]' ;;
         *) TiC='\[\033[0;34m\]' ;;
     esac
     
@@ -227,6 +211,10 @@ show_banner() {
                 "magenta") echo -e "\033[0;35m$banner_content\033[0m" ;;
                 "green") echo -e "\033[0;32m$banner_content\033[0m" ;;
                 "pink") echo -e "\033[1;35m$banner_content\033[0m" ;;
+                "yellow") echo -e "\033[1;33m$banner_content\033[0m" ;;
+                "red") echo -e "\033[0;31m$banner_content\033[0m" ;;
+                "blue") echo -e "\033[0;34m$banner_content\033[0m" ;;
+                "white") echo -e "\033[1;37m$banner_content\033[0m" ;;
                 *) echo -e "\033[0;36m$banner_content\033[0m" ;;
             esac
         else
@@ -329,7 +317,11 @@ bcp-theme() {
     case "$action" in
         "list")
             echo "Available themes:"
-            ls "$THEME_DIR"/*.theme 2>/dev/null | xargs -n1 basename | sed 's/.theme$//' | column
+            if [[ -d "$THEME_DIR" ]]; then
+                ls "$THEME_DIR"/*.theme 2>/dev/null | xargs -n1 basename | sed 's/.theme$//' | column
+            else
+                echo "No themes directory found"
+            fi
             echo ""
             echo "Current theme: $BCP_THEME"
             ;;
@@ -350,10 +342,33 @@ bcp-theme() {
                 echo "Use 'bcp-theme list' to see available themes"
             fi
             ;;
+        "info")
+            if [[ -z "$theme_name" ]]; then
+                theme_name="$BCP_THEME"
+            fi
+            
+            local theme_file="$THEME_DIR/${theme_name}.theme"
+            if [[ -f "$theme_file" ]]; then
+                echo "Theme: $theme_name"
+                echo "File: $theme_file"
+                echo ""
+                echo "Colors:"
+                source "$theme_file"
+                echo "  Prompt: ${PROMPT_COLOR:-not set}"
+                echo "  User: ${USER_COLOR:-not set}"
+                echo "  Team: ${TEAM_COLOR:-not set}"
+                echo "  Directory: ${DIR_COLOR:-not set}"
+                echo "  Time: ${TIME_COLOR:-not set}"
+                echo "  Banner: ${BANNER_COLOR:-not set}"
+            else
+                echo "Theme not found: $theme_name"
+            fi
+            ;;
         *)
             echo "Theme Commands:"
             echo "  bcp-theme list          - List available themes"
             echo "  bcp-theme set <name>    - Change theme"
+            echo "  bcp-theme info [name]   - Show theme info"
             ;;
     esac
 }
@@ -425,6 +440,8 @@ bcp-status() {
     echo "║  Banner: $BCP_BANNER"
     echo "║  Show Banner: $BCP_SHOW_BANNER"
     echo "║  Home: $BCP_HOME"
+    echo "║  Themes Dir: $THEME_DIR"
+    echo "║  Available Themes: $(ls "$THEME_DIR"/*.theme 2>/dev/null | wc -l)"
     echo "╚══════════════════════════════════════════╝\033[0m"
 }
 
