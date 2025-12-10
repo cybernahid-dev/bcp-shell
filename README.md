@@ -57,10 +57,10 @@ curl -sSL https://raw.githubusercontent.com/cybernahid-dev/bcp-shell/main/instal
 Manual Installation
 
 ```bash
-git clone https://github.com/cybernahid-dev/bcp-shell.git ~/.bcp-shell
-cd ~/.bcp-shell
+git clone https://github.com/cybernahid-dev/bcp-shell.git
+cd bcp-shell
 chmod +x install.sh
-./install.sh
+bash install.sh / ./install.sh
 ```
 
 ## 📦 System Requirements
