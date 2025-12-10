@@ -11,7 +11,7 @@
 
 </div>
 
-Project Overview
+## 📖Project Overview
 
 BCP-Shell is an advanced, feature-rich custom shell environment designed for developers, system administrators, and terminal enthusiasts. Built with extensibility and aesthetics in mind, it transforms your terminal into a powerful, personalized workspace.
 
@@ -38,7 +38,7 @@ BCP-Shell is an advanced, feature-rich custom shell environment designed for dev
 · Plugin Architecture: Extensible via plugin system
 · Configuration Management: JSON-based config with import/export
 
-🔧 Development Features
+**🔧 Development Features**
 
 · Git Integration: Automatic branch detection and status
 · Virtual Environment: Python/Ruby/Node.js environment detection
@@ -102,7 +102,7 @@ bcp-banner set cyber        # Set startup banner
 bcp-status                  # Verify configuration
 ```
 
-Basic Commands
+**Basic Commands**
 
 ```bash
 # User & Team
@@ -138,7 +138,7 @@ bcp-style compact           # Space-efficient
 bcp-style classic           # Traditional bash style
 ```
 
-Themes
+**Themes**
 
 ```bash
 # Pre-installed Themes:
@@ -152,7 +152,7 @@ bcp-theme set purple        # Purple theme
 bcp-theme create mytheme    # Create new theme
 ```
 
-Banners
+**Banners**
 
 ```bash
 # Available Banners:
@@ -168,7 +168,7 @@ bcp-banner preview <name>   # Preview banner
 
 ## 🔧 Advanced Features
 
-Plugin System
+**Plugin System**
 
 ```bash
 # Plugin commands
@@ -178,7 +178,7 @@ bcp-plugin disable <name>   # Disable plugin
 bcp-plugin info <name>      # Show plugin info
 ```
 
-Utility Commands
+**Utility Commands**
 
 ```bash
 # System Information
@@ -194,7 +194,7 @@ bcp-env-check               # Environment check
 bcp-path                    # Show PATH variables
 ```
 
-Configuration Management
+**Configuration Management**
 
 ```bash
 # Config operations
@@ -248,7 +248,7 @@ bcp-config reset            # Reset to defaults
 
 ## 🛠 Development
 
-Building from Source
+**Building from Source**
 
 ```bash
 # Clone repository
@@ -265,7 +265,7 @@ make test
 make install
 ```
 
-Creating Plugins
+**Creating Plugins**
 
 ```bash
 # Plugin template
@@ -282,7 +282,7 @@ bcp_register_command "mycmd" "myplugin_mycmd"
 EOF
 ```
 
-Theme Development
+**Theme Development**
 
 ```bash
 # Create theme file
@@ -314,7 +314,7 @@ bcp-update
 bcp-update --backup
 ```
 
-Manual Updates
+**Manual Updates**
 
 ```bash
 # Method 1: Using git
@@ -328,9 +328,9 @@ curl -sSL https://raw.githubusercontent.com/cybernahid-dev/bcp-shell/main/instal
 wget -O ~/.bcp-shell/bcp-shell.sh https://raw.githubusercontent.com/cybernahid-dev/bcp-shell/main/bcp-shell.sh
 ```
 
-🚨 Troubleshooting
+## 🚨 Troubleshooting
 
-Common Issues
+**Common Issues**
 
 Installation Fails
 
@@ -348,7 +348,7 @@ cp bcp-shell.sh ~/.bcp-shell/
 echo "source ~/.bcp-shell/bcp-shell.sh" >> ~/.bashrc
 ```
 
-Prompt Not Showing
+**Prompt Not Showing**
 
 ```bash
 # Reload shell
@@ -361,7 +361,7 @@ echo $PS1
 export PS1="[\\[\\033[0;36m\\]TeamBCP\\[\\033[0m\\]] \\[\\033[1;33m\\]@\\u\\[\\033[0m\\]:\\[\\033[0;35m\\]\\w\\[\\033[0m\\]\\$ "
 ```
 
-Commands Not Working
+**Commands Not Working**
 
 ```bash
 # Check if shell loaded
@@ -374,7 +374,7 @@ source ~/.bcp-shell/bcp-shell.sh
 ls -la ~/.bcp-shell/config/
 ```
 
-Debug Mode
+**Debug Mode**
 
 ```bash
 # Enable debug
@@ -385,9 +385,9 @@ source ~/.bcp-shell/bcp-shell.sh
 cat ~/.bcp-shell/debug.log
 ```
 
-🤝 Contributing
+## 🤝 Contributing
 
-How to Contribute
+**How to Contribute**
 
 1. Fork the repository
 2. Create feature branch: git checkout -b feature/NewFeature
@@ -395,7 +395,7 @@ How to Contribute
 4. Push to branch: git push origin feature/NewFeature
 5. Open Pull Request
 
-Contribution Areas
+**Contribution Areas**
 
 · Bug Fixes: Report and fix issues
 · New Features: Add functionality
@@ -404,7 +404,7 @@ Contribution Areas
 · Documentation: Improve docs
 · Translations: Add language support
 
-Development Setup
+**Development Setup**
 
 ```bash
 # Clone with submodules
@@ -418,11 +418,11 @@ cd bcp-shell
 ./scripts/run-tests.sh
 ```
 
-📄 License
+## 📄 License
 
 MIT License
 
-Copyright (c) 2024 cybernahid-dev & TeamBCP
+Copyright (c) 2025 cybernahid-dev & TeamBCP
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files(the "Software"), to deal
@@ -442,40 +442,40 @@ LIABILITY,WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-👥 Team & Credits
+## 👥 Team & Credits
 
-Core Team
+**Core Team**
 
-· cybernahid-dev - Creator & Lead Developer
+**· cybernahid-dev - Creator & Lead** Developer
 · TeamBCP Members - Testing & Feedback
 
-Acknowledgments
+**Acknowledgments**
 
 · Inspired by Oh My Zsh, Fish Shell, Powerlevel10k
 · Thanks to Termux community for Android support
 · Open source community for tools and libraries
 
-Support
+**❣️ Support**
 
 · GitHub Issues: Bug reports and feature requests
 · Documentation: Comprehensive guides and examples
 · Community: User discussions and support
 
-📞 Support & Community
+**📞 Support & Community**
 
-Getting Help
+**Getting Help**
 
 · Documentation: Read the full docs at docs/
 · GitHub Issues: Report issues
 · Examples: Check examples/ directory
 
-Community Resources
+**Community Resources**
 
 · GitHub Discussions: Share ideas and solutions
 · Wiki: User-contributed tips and tricks
 · Examples: Real-world use cases
 
-Enterprise Support
+**Enterprise Support**
 
 For commercial support or custom implementations, contact the maintainers.
 
