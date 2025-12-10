@@ -60,7 +60,7 @@ Manual Installation
 git clone https://github.com/cybernahid-dev/bcp-shell.git
 cd bcp-shell
 chmod +x install.sh
-bash install.sh / ./install.sh
+bash install.sh or ./install.sh
 ```
 
 ## 📦 System Requirements
