@@ -81,13 +81,14 @@ Recommended
 
 ## 📋 Platform Support
 
+```
 Platform Status Notes
 Termux (Android) ✅ Full Support Optimized for mobile
 Linux (Ubuntu/Debian) ✅ Full Support Primary platform
 macOS ✅ Full Support Includes macOS-specific features
 WSL (Windows) ✅ Full Support Windows Subsystem for Linux
 BSD ⚠️ Limited Basic functionality
-
+```
 ## 🎯 Getting Started
 
 First-time Setup
