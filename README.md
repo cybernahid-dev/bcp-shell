@@ -17,21 +17,21 @@ BCP-Shell is an advanced, feature-rich custom shell environment designed for dev
 
 ## ✨ Core Features
 
-🎯 Prompt System
+**🎯 Prompt System**
 
 · Multiple Styles: Choose from 5+ prompt styles (Advanced, Minimal, Expert, Compact, Classic)
 · Dynamic Elements: Real-time display of git status, time, user info, and system metrics
 · Color Customization: Full RGB/256-color support with theme engine
 · Multi-line Support: Clean, organized multi-line prompts
 
-🛠 User Management
+**🛠 User Management**
 
 · Easy Username Changes: bcp-user <name> command
 · Team Branding: Custom team name display
 · Display Formats: Flexible display name configurations
 · Profile Switching: Quick user profile management
 
-🎨 Customization Engine
+**🎨 Customization Engine**
 
 · Theme System: Pre-built themes + custom theme creation
 · Banner Display: Multiple ASCII art banners
