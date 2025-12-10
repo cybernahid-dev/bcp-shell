@@ -1,0 +1,162 @@
+# BCP-Shell Color Palettes
+# Pre-defined color schemes for themes
+
+# ============================================
+# DEFAULT PALETTE
+# ============================================
+[DEFAULT]
+PROMPT_COLOR="cyan"
+USER_COLOR="green"
+HOST_COLOR="yellow"
+DIR_COLOR="magenta"
+TIME_COLOR="blue"
+GIT_COLOR="white"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="yellow"
+INFO_COLOR="cyan"
+BANNER_COLOR="cyan"
+
+# ============================================
+# DARK PALETTE
+# ============================================
+[DARK]
+PROMPT_COLOR="gray"
+USER_COLOR="white"
+HOST_COLOR="yellow"
+DIR_COLOR="cyan"
+TIME_COLOR="blue"
+GIT_COLOR="green"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="yellow"
+INFO_COLOR="blue"
+BANNER_COLOR="cyan"
+
+# ============================================
+# CYBERPUNK PALETTE
+# ============================================
+[CYBERPUNK]
+PROMPT_COLOR="magenta"
+USER_COLOR="cyan"
+HOST_COLOR="green"
+DIR_COLOR="yellow"
+TIME_COLOR="red"
+GIT_COLOR="pink"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="yellow"
+INFO_COLOR="cyan"
+BANNER_COLOR="magenta"
+
+# ============================================
+# NEON PALETTE
+# ============================================
+[NEON]
+PROMPT_COLOR="cyan"
+USER_COLOR="green"
+HOST_COLOR="yellow"
+DIR_COLOR="magenta"
+TIME_COLOR="blue"
+GIT_COLOR="pink"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="yellow"
+INFO_COLOR="cyan"
+BANNER_COLOR="pink"
+
+# ============================================
+# MONOKAI PALETTE
+# ============================================
+[MONOKAI]
+PROMPT_COLOR="purple"
+USER_COLOR="green"
+HOST_COLOR="orange"
+DIR_COLOR="cyan"
+TIME_COLOR="yellow"
+GIT_COLOR="pink"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="orange"
+INFO_COLOR="cyan"
+BANNER_COLOR="purple"
+
+# ============================================
+# SOLARIZED PALETTE
+# ============================================
+[SOLARIZED]
+PROMPT_COLOR="blue"
+USER_COLOR="green"
+HOST_COLOR="yellow"
+DIR_COLOR="cyan"
+TIME_COLOR="magenta"
+GIT_COLOR="white"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="yellow"
+INFO_COLOR="blue"
+BANNER_COLOR="cyan"
+
+# ============================================
+# DRACULA PALETTE
+# ============================================
+[DRACULA]
+PROMPT_COLOR="purple"
+USER_COLOR="pink"
+HOST_COLOR="cyan"
+DIR_COLOR="green"
+TIME_COLOR="yellow"
+GIT_COLOR="orange"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="yellow"
+INFO_COLOR="cyan"
+BANNER_COLOR="purple"
+
+# ============================================
+# GRUVBOX PALETTE
+# ============================================
+[GRUVBOX]
+PROMPT_COLOR="yellow"
+USER_COLOR="green"
+HOST_COLOR="blue"
+DIR_COLOR="magenta"
+TIME_COLOR="cyan"
+GIT_COLOR="orange"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="yellow"
+INFO_COLOR="blue"
+BANNER_COLOR="yellow"
+
+# ============================================
+# NORTHERN LIGHTS PALETTE
+# ============================================
+[NORTHERN_LIGHTS]
+PROMPT_COLOR="cyan"
+USER_COLOR="green"
+HOST_COLOR="magenta"
+DIR_COLOR="blue"
+TIME_COLOR="purple"
+GIT_COLOR="pink"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="yellow"
+INFO_COLOR="cyan"
+BANNER_COLOR="magenta"
+
+# ============================================
+# TERMUX DARK PALETTE
+# ============================================
+[TERMUX_DARK]
+PROMPT_COLOR="green"
+USER_COLOR="cyan"
+HOST_COLOR="yellow"
+DIR_COLOR="magenta"
+TIME_COLOR="blue"
+GIT_COLOR="white"
+SUCCESS_COLOR="green"
+ERROR_COLOR="red"
+WARNING_COLOR="yellow"
+INFO_COLOR="cyan"
+BANNER_COLOR="green"

@@ -1,0 +1,31 @@
+# BCP-Shell Default User Configuration
+# ====================================
+
+# User Settings
+USER_NAME="$(whoami)"
+DISPLAY_NAME="@$(whoami)"
+TEAM_NAME="TeamBCP"
+
+# Display Settings
+PROMPT_STYLE="advanced"
+BANNER="default"
+THEME="default"
+SHOW_BANNER=true
+SHOW_TIME=true
+
+# Behavior Settings
+AUTO_UPDATE=true
+COLOR_MODE="auto"
+ANIMATIONS=true
+NOTIFICATIONS=true
+
+# Advanced Settings
+HISTORY_SIZE=10000
+HISTORY_IGNORE="ls:ll:la:cd:pwd:exit:clear"
+AUTO_SUGGESTIONS=true
+SYNTAX_HIGHLIGHT=true
+
+# Plugin Settings
+WEATHER_CITY="Dhaka"
+SYSTEM_MONITOR=true
+GIT_ENHANCED=true
