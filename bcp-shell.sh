@@ -4,7 +4,7 @@
 # Author: cybernahid-dev
 # Team: TeamBCP
 
-==================== CONFIGURATION ====================
+# =================== CONFIGURATION ===================
 
 BCP_HOME="$HOME/.bcp-shell"
 CONFIG_DIR="$BCP_HOME/config"
@@ -38,7 +38,7 @@ else
     echo "BCP_SHOW_BANNER='$BCP_SHOW_BANNER'" >> "$CONFIG_FILE"
 fi
 
-==================== CREATE DEFAULT BANNERS ONLY (FIXED) ====================
+# =================== CREATE DEFAULT BANNERS ===================
 
 # Default Banner (FIXED)
 if [[ ! -f "$BANNER_DIR/default.banner" ]]; then
@@ -89,33 +89,28 @@ fi
 # ASCII Art Banner (This is BCP-Shell's default ASCII banner)
 if [[ ! -f "$BANNER_DIR/ascii.banner" ]]; then
 cat > "$BANNER_DIR/ascii.banner" << 'EOF'
-
-
----
-
-|_   |_ _ __ ___  ___  / | |  |
-| |/ _ \ '/ |/ _ \ _ \ | |
-| |  / |  _ \  /  ) ||  |
-||_||  |/_| |__/ ||
-
-User: @{USER}  
- Team: {TEAM}  
- Time: {TIME}  
- Host: {HOST}
+  _____                    ____   _____ 
+ |_   _|__ _ __ ___  ___  / ___| |  ___|
+   | |/ _ \ '__/ __|/ _ \ \___ \ | |_   
+   | |  __/ |  \__ \  __/  ___) ||  _|  
+   |_|\___|_|  |___/\___| |____/ |_|    
+                                       
+     User: @{USER}
+     Team: {TEAM}
+     Time: {TIME}
+     Host: {HOST}
 
 EOF
 fi
 
-==================== LOAD THEME FROM EXISTING FILES ====================
+# =================== LOAD THEME FROM EXISTING FILES ===================
 
 load_theme() {
     local theme_file="$THEME_DIR/${BCP_THEME}.theme"
 
     if [[ -f "$theme_file" ]]; then  
-        # থিম ফাইল লোড করুন  
         source "$theme_file"  
           
-        # থিম ফাইলে যদি রং ডিফাইন না থাকে, ডিফল্ট সেট করুন  
         if [[ -z "$PROMPT_COLOR" ]]; then PROMPT_COLOR="cyan"; fi  
         if [[ -z "$USER_COLOR" ]]; then USER_COLOR="green"; fi  
         if [[ -z "$TEAM_COLOR" ]]; then TEAM_COLOR="green"; fi  
@@ -123,11 +118,6 @@ load_theme() {
         if [[ -z "$TIME_COLOR" ]]; then TIME_COLOR="blue"; fi  
         if [[ -z "$BANNER_COLOR" ]]; then BANNER_COLOR="cyan"; fi  
     else  
-        # থিম ফাইল না থাকলে ডিফল্ট রং সেট করুন  
-        echo -e "\033[1;33m⚠️  Theme file not found: $BCP_THEME\033[0m"  
-        echo -e "\033[0;36m💡 Available themes: $(ls "$THEME_DIR"/*.theme 2>/dev/null | xargs -n1 basename | sed 's/.theme$//' | tr '\n' ' ')\033[0m"  
-          
-        # ডিফল্ট রং  
         PROMPT_COLOR="cyan"  
         USER_COLOR="green"  
         TEAM_COLOR="green"  
@@ -136,70 +126,69 @@ load_theme() {
         BANNER_COLOR="cyan"  
     fi  
       
-    # Convert color names to codes  
-    case "$PROMPT_COLOR" in  
-        "cyan") PC='\033[0;36m' ;;  
-        "green") PC='\033[0;32m' ;;  
-        "magenta") PC='\033[0;35m' ;;  
-        "gray") PC='\033[0;90m' ;;  
-        "red") PC='\033[0;31m' ;;  
-        "yellow") PC='\033[1;33m' ;;  
-        "blue") PC='\033[0;34m' ;;  
-        "white") PC='\033[1;37m' ;;  
-        *) PC='\033[0;36m' ;;  
-    esac  
-      
-    case "$USER_COLOR" in  
-        "green") UC='\033[0;32m' ;;  
-        "yellow") UC='\033[1;33m' ;;  
-        "cyan") UC='\033[0;36m' ;;  
-        "white") UC='\033[1;37m' ;;  
-        "red") UC='\033[0;31m' ;;  
-        "magenta") UC='\033[0;35m' ;;  
-        "blue") UC='\033[0;34m' ;;  
-        *) UC='\033[1;33m' ;;  
-    esac  
-      
-    case "$TEAM_COLOR" in  
-        "green") TC='\033[0;32m' ;;  
-        "yellow") TC='\033[1;33m' ;;  
-        "cyan") TC='\033[0;36m' ;;  
-        "white") TC='\033[1;37m' ;;  
-        "red") TC='\033[0;31m' ;;  
-        "magenta") TC='\033[0;35m' ;;  
-        "blue") TC='\033[0;34m' ;;  
-        *) TC='\033[0;32m' ;;  
-    esac  
-      
-    case "$DIR_COLOR" in  
-        "magenta") DC='\033[0;35m' ;;  
-        "cyan") DC='\033[0;36m' ;;  
-        "yellow") DC='\033[1;33m' ;;  
-        "green") DC='\033[0;32m' ;;  
-        "red") DC='\033[0;31m' ;;  
-        "blue") DC='\033[0;34m' ;;  
-        "white") DC='\033[1;37m' ;;  
-        *) DC='\033[0;35m' ;;  
-    esac  
-      
-    case "$TIME_COLOR" in  
-        "blue") TiC='\033[0;34m' ;;  
-        "red") TiC='\033[0;31m' ;;  
-        "cyan") TiC='\033[0;36m' ;;  
-        "green") TiC='\033[0;32m' ;;  
-        "yellow") TiC='\033[1;33m' ;;  
-        "magenta") TiC='\033[0;35m' ;;  
-        "white") TiC='\033[1;37m' ;;  
-        *) TiC='\033[0;34m' ;;  
-    esac  
-      
-    RST='\033[0m'
+    case "$PROMPT_COLOR" in
+        "cyan") PC='\[\033[0;36m\]' ;;
+        "green") PC='\[\033[0;32m\]' ;;
+        "magenta") PC='\[\033[0;35m\]' ;;
+        "gray") PC='\[\033[0;90m\]' ;;
+        "red") PC='\[\033[0;31m\]' ;;
+        "yellow") PC='\[\033[1;33m\]' ;;
+        "blue") PC='\[\033[0;34m\]' ;;
+        "white") PC='\[\033[1;37m\]' ;;
+        *) PC='\[\033[0;36m\]' ;;
+    esac
+
+    case "$USER_COLOR" in
+        "green") UC='\[\033[0;32m\]' ;;
+        "yellow") UC='\[\033[1;33m\]' ;;
+        "cyan") UC='\[\033[0;36m\]' ;;
+        "white") UC='\[\033[1;37m\]' ;;
+        "red") UC='\[\033[0;31m\]' ;;
+        "magenta") UC='\[\033[0;35m\]' ;;
+        "blue") UC='\[\033[0;34m\]' ;;
+        *) UC='\[\033[1;33m\]' ;;
+    esac
+
+    case "$TEAM_COLOR" in
+        "green") TC='\[\033[0;32m\]' ;;
+        "yellow") TC='\[\033[1;33m\]' ;;
+        "cyan") TC='\[\033[0;36m\]' ;;
+        "white") TC='\[\033[1;37m\]' ;;
+        "red") TC='\[\033[0;31m\]' ;;
+        "magenta") TC='\[\033[0;35m\]' ;;
+        "blue") TC='\[\033[0;34m\]' ;;
+        *) TC='\[\033[0;32m\]' ;;
+    esac
+
+    case "$DIR_COLOR" in
+        "magenta") DC='\[\033[0;35m\]' ;;
+        "cyan") DC='\[\033[0;36m\]' ;;
+        "yellow") DC='\[\033[1;33m\]' ;;
+        "green") DC='\[\033[0;32m\]' ;;
+        "red") DC='\[\033[0;31m\]' ;;
+        "blue") DC='\[\033[0;34m\]' ;;
+        "white") DC='\[\033[1;37m\]' ;;
+        *) DC='\[\033[0;35m\]' ;;
+    esac
+
+    case "$TIME_COLOR" in
+        "blue") TiC='\[\033[0;34m\]' ;;
+        "red") TiC='\[\033[0;31m\]' ;;
+        "cyan") TiC='\[\033[0;36m\]' ;;
+        "green") TiC='\[\033[0;32m\]' ;;
+        "yellow") TiC='\[\033[1;33m\]' ;;
+        "magenta") TiC='\[\033[0;35m\]' ;;
+        "white") TiC='\[\033[1;37m\]' ;;
+        *) TiC='\[\033[0;34m\]' ;;
+    esac
+
+    RST='\[\033[0m\]'
 }
 
 # Load initial theme
 load_theme
 
-==================== SHOW BANNER ====================
+# =================== SHOW BANNER ===================
 
 show_banner() {
     if [[ "$BCP_SHOW_BANNER" == "true" ]]; then
@@ -239,7 +228,7 @@ show_banner() {
     fi
 }
 
-==================== PROMPT SYSTEM ====================
+# =================== PROMPT SYSTEM ===================
 
 update_prompt() {
     case "$BCP_STYLE" in
@@ -264,7 +253,7 @@ update_prompt() {
 # Initialize prompt
 update_prompt
 
-==================== CORE COMMANDS ====================
+# =================== CORE COMMANDS ===================
 
 bcp-user() {
     if [[ -z "$1" ]]; then
@@ -333,8 +322,6 @@ bcp-theme() {
             else  
                 echo "No themes directory found"  
             fi  
-            echo ""  
-            echo "Current theme: $BCP_THEME"  
             ;;  
         "set")  
             if [[ -z "$theme_name" ]]; then  
@@ -511,7 +498,7 @@ bcp-update() {
     fi
 }
 
-==================== ALIASES ====================
+# =================== ALIASES ===================
 
 alias bcp-ver='echo "BCP-Shell v5.0"'
 alias bcp-reload='source "$BCP_HOME/bcp-shell.sh"'
@@ -519,9 +506,10 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 alias la='ls -A'
 
-==================== STARTUP ====================
+# =================== STARTUP ===================
 
 show_banner
 echo -e "\033[0;32m✅ BCP-Shell v5.0 activated!\033[0m"
 echo -e "\033[0;36m💡 Type 'bcp-help' for all commands\033[0m"
 echo -e "\033[1;33m🚀 Try: bcp-user Nahid\033[0m"
+
